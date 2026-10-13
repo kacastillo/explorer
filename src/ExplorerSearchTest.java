@@ -17,4 +17,20 @@ public class ExplorerSearchTest {
 
     // Add more tests here!
     // Come up with varied cases
+
+ @Test // Test case for a single cell island
+    public void testReachableArea_singleCell() {
+        int[][] island = {{0}};
+        assertEquals(1, ExplorerSearch.reachableArea(island));
+    }
+ 
+    @Test // Test case for an island with no reachable area
+    public void testReachableArea_allLand() {
+        int[][] island = {
+            {1,1,1},
+            {1,0,1},
+            {1,1,1},
+        };
+        assertEquals(9, ExplorerSearch.reachableArea(island));
+    }
 }

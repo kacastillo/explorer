@@ -61,4 +61,16 @@ public static List<int[]> neighbors(int[][] island, int row, int col) {
     }
     return result;
 }
+private static int explore(int[][] island, boolean[][] visited, int row, int col) {
+    visited[row][col] = true;
+    int count = 1;
+    for (int[] next : neighbors(island, row, col)) {
+        int nextRow = next[0];
+        int nextCol = next[1];
+        if (!visited[nextRow][nextCol]) {
+            count += explore(island, visited, nextRow, nextCol);
+        }
+    }
+    return count;
+}
 }
