@@ -47,3 +47,18 @@ public class ExplorerSearch {
     }
     return null;
 }
+
+public static List<int[]> neighbors(int[][] island, int row, int col) {
+    List<int[]> result = new ArrayList<>();
+    int[][] dirs = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
+    for (int[] d : dirs) {
+        int r = row + d[0];
+        int c = col + d[1];
+        if (r >= 0 && r < island.length && c >= 0 && c < island[r].length
+                && (island[r][c] == 0 || island[r][c] == 1)) {
+            result.add(new int[]{r, c});
+        }
+    }
+    return result;
+}
+}
