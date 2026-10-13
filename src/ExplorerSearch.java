@@ -32,6 +32,9 @@ public class ExplorerSearch {
         // Implement your method here!
         // Please also make more test cases
         // I STRONGLY RECOMMEND testing some helpers you might make too
-        return -1;
-    }
+        int[] start = findStart(island);
+    if (start == null) return 0;
+    boolean[][] visited = new boolean[island.length][island[0].length];
+    return explore(island, visited, start[0], start[1]);
+}
 }
